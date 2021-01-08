@@ -34,7 +34,7 @@ public class MyLinkedList{
     return true;
   }
 
-  public boolean add(int index, String value){
+  public void add(int index, String value){
     if (index < 0) {
       throw new IndexOutOfBoundsException("index of " + index
         + " cannot be negative");
@@ -80,7 +80,6 @@ public class MyLinkedList{
       temp.setdata(value);
     }
     size+=1;
-    return true;
   }
 
   public String get(int index){
@@ -128,5 +127,21 @@ public class MyLinkedList{
     ret+="]";
     return ret;
   }
+
+  public String toStringReversed(){
+    String ret = "[";
+    for (int i = size-1; i >= 0; i--) {
+      ret+=get(i);
+      if (i!=0) {
+        ret+=", ";
+      }
+    }
+    ret+="]";
+    return ret;
+  }
+
+  /*public String remove(int index){
+
+  }*/
 
 }

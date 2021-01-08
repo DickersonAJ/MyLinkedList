@@ -23,6 +23,7 @@ public class tester{
     //chain.set(30,"2.5");
     System.out.println();
     System.out.println(chain.toString());
+    System.out.println(chain.toStringReversed());
 
   }
 }
