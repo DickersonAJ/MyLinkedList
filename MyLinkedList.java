@@ -99,11 +99,17 @@ public class MyLinkedList{
     return current.getdata();
   }
 
-  /*public String set(int index, String value){
-
+  public String set(int index, String value){
+    Node current = start;
+    for (int i = 0; i < index; i++) {
+      current = current.getnext();
+    }
+    String old = current.getdata();
+    current.setdata(value);
+    return old;
   }
 
-  public String toString(){
+  /*public String toString(){
 
   }*/
 

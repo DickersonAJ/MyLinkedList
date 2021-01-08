@@ -14,7 +14,11 @@ public class tester{
     for (int i = 0; i < chain.size(); i++) {
       System.out.println(chain.get(i));
     }
-
+    System.out.println();
+    chain.set(3,"2.5");
+    for (int i = 0; i < chain.size(); i++) {
+      System.out.println(chain.get(i));
+    }
 
   }
 }
