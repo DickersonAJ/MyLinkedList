@@ -140,8 +140,40 @@ public class MyLinkedList{
     return ret;
   }
 
-  /*public String remove(int index){
-
-  }*/
+  public String remove(int index){
+    if (index < 0) {
+      throw new IndexOutOfBoundsException("index of " + index
+        + " cannot be negative");
+    }
+    if (index >= size) {
+      throw new IndexOutOfBoundsException("index of " + index
+        + " is too large");
+    }
+    String ret = get(index);
+    if (index == 0){
+      if (size==1){
+        start = null;
+        end = null;
+      }
+      else {
+        start.getnext().setprev(null);
+        start = start.getnext();
+      }
+    }
+    else if (index==size-1){
+      end.getprev().setnext(null);
+      end = end.getprev();
+    }
+    else {
+      Node current = start;
+      for (int i = 0; i < index; i++) {
+        current = current.getnext();
+      }
+      current.getprev().setnext(current.getnext());
+      current.getnext().setprev(current.getprev());
+    }
+    size-=1;
+    return ret;
+  }
 
 }

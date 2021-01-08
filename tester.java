@@ -24,6 +24,14 @@ public class tester{
     System.out.println();
     System.out.println(chain.toString());
     System.out.println(chain.toStringReversed());
+    System.out.println();
+    chain.remove(3);
+    System.out.println(chain.toString());
+    chain.remove(4);
+    System.out.println(chain.toString());
+    chain.remove(0);
+    System.out.println(chain.toString());
+
 
   }
 }
