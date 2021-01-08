@@ -43,6 +43,43 @@ public class MyLinkedList{
       throw new IndexOutOfBoundsException("index of " + index
         + " is too large");
     }
+    Node temp = new Node(value);
+    if (index == 0){
+      if (size==0){
+        start = temp;
+        end = temp;
+      }
+      else {
+        String old = start.getdata();
+        start.getnext().setprev(temp);
+        temp.setnext(start.getnext());
+        temp.setprev(start);
+        start.setnext(temp);
+        start.setdata(value);
+        temp.setdata(old);
+      }
+    }
+    else if (index==size){
+      String old = end.getdata();
+      end.getprev().setnext(temp);
+      temp.setprev(end.getprev());
+      temp.setnext(end);
+      end.setprev(temp);
+      end.setdata(value);
+      temp.setdata(old);
+    }
+    else {
+      Node current = start;
+      for (int i = 0; i < index; i++) {
+        current = current.getnext();
+      }
+      current.getprev().setnext(temp);
+      temp.setprev(current.getprev());
+      temp.setnext(current);
+      current.setprev(temp);
+      temp.setdata(value);
+    }
+    size+=1;
     return true;
   }
 

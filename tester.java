@@ -7,7 +7,13 @@ public class tester{
     System.out.println(chain.get(0));
     System.out.println(chain.get(1));
     System.out.println(chain.get(2));
-    System.out.println(chain.get(5));
+    //System.out.println(chain.get(5));
+    chain.add(0,"zero");
+    chain.add(4,"last");
+    chain.add(3,"interuption");
+    for (int i = 0; i < chain.size(); i++) {
+      System.out.println(chain.get(i));
+    }
 
 
   }
