@@ -100,6 +100,14 @@ public class MyLinkedList{
   }
 
   public String set(int index, String value){
+    if (index < 0) {
+      throw new IndexOutOfBoundsException("index of " + index
+        + " cannot be negative");
+    }
+    if (index > size) {
+      throw new IndexOutOfBoundsException("index of " + index
+        + " is too large");
+    }
     Node current = start;
     for (int i = 0; i < index; i++) {
       current = current.getnext();
@@ -109,8 +117,16 @@ public class MyLinkedList{
     return old;
   }
 
-  /*public String toString(){
-
-  }*/
+  public String toString(){
+    String ret = "[";
+    for (int i = 0; i < size; i++) {
+      ret+=get(i);
+      if (i!=size-1) {
+        ret+=", ";
+      }
+    }
+    ret+="]";
+    return ret;
+  }
 
 }

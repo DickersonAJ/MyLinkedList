@@ -19,6 +19,10 @@ public class tester{
     for (int i = 0; i < chain.size(); i++) {
       System.out.println(chain.get(i));
     }
+    //chain.set(-3,"2.5");
+    //chain.set(30,"2.5");
+    System.out.println();
+    System.out.println(chain.toString());
 
   }
 }
