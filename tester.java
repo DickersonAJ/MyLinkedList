@@ -32,6 +32,43 @@ public class tester{
     chain.remove(0);
     System.out.println(chain.toString());
 
+    /*Node test = new Node("0");
+    chain.addNodeToFront(test);
+    System.out.println(chain.toString());
+    System.out.println(chain.toStringReversed());
+    System.out.println(test.getdata());
+    chain.addNodeToEnd(test);
+    System.out.println(chain.toString());
+    System.out.println(chain.toStringReversed());
+    System.out.println(test.getdata());*/
+
+    MyLinkedList empty = new MyLinkedList();
+    MyLinkedList empty2 = new MyLinkedList();
+    empty.extend(empty2);
+    System.out.println(empty.toString());
+    System.out.println(empty.toStringReversed());
+    chain.extend(empty);
+    System.out.println(chain.toString());
+    System.out.println(chain.toStringReversed());
+    /*empty.extend(chain);
+    System.out.println(empty.toString());
+    System.out.println(empty.toStringReversed());*/
+    MyLinkedList chain2 = new MyLinkedList();
+    chain.add("four");
+    chain.add("five");
+    chain.add("six");
+    chain.extend(chain2);
+    System.out.println(chain.toString());
+    System.out.println(chain.toStringReversed());
+
+    MyLinkedList chain3 = new MyLinkedList();
+    chain3.add("seven");
+    chain.extend(chain3);
+    System.out.println(chain.toString());
+    System.out.println(chain.toStringReversed());
+    empty.extend(chain);
+    System.out.println(empty.toString());
+    System.out.println(empty.toStringReversed());
 
   }
 }

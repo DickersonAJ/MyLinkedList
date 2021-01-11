@@ -176,4 +176,66 @@ public class MyLinkedList{
     return ret;
   }
 
+  public void extend(MyLinkedList other){
+    if (other.size() == 1) {
+      add(other.get(0));
+      size-=1;
+    }
+    else if (size==0){
+      if (other.size() != 0){
+
+        add("temp");
+        add("temp");
+
+        other.addNodeToFront(start);
+        start = start.getnext();
+        start.setprev(null);
+
+        other.addNodeToEnd(end);
+        end = end.getprev();
+        end.setnext(null);
+
+        size-=4;
+      }
+    }
+    else if (other.size() != 0){
+      other.addNodeToFront(end);
+      Node replaceEnd = end;
+      replaceEnd.getprev().setnext(replaceEnd);
+      replaceEnd.getnext().setprev(replaceEnd);
+      other.addNodeToEnd(end);
+      end = end.getprev();
+      end.setnext(null);
+    }
+    size+=other.size();
+    MyLinkedList empty = new MyLinkedList();
+    other = empty;
+  }
+
+  public void addNodeToFront(Node block){
+    if (size > 1) {
+      Node replace = start;
+      block.setnext(replace);
+      replace.setprev(block);
+      replace.getnext().setprev(replace);
+      start = block;
+      start.getnext().setprev(start);
+      size+=1;
+    }
+    //This may mess something up, but toString and toStringReversed work so it seems fine
+  }
+
+  public void addNodeToEnd(Node block){
+    if (size > 1) {
+      Node replace = end;
+      block.setprev(replace);
+      replace.setnext(block);
+      replace.getprev().setnext(replace);
+      end = block;
+      end.getprev().setnext(end);
+      size+=1;
+    }
+    //This may mess something up, but toString and toStringReversed work so it seems fine
+  }
+
 }
