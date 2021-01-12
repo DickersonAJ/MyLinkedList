@@ -32,7 +32,8 @@ public class tester{
     chain.remove(0);
     System.out.println(chain.toString());
 
-    /*Node test = new Node("0");
+    System.out.println("node tester thing");
+    Node test = new Node("0");
     chain.addNodeToFront(test);
     System.out.println(chain.toString());
     System.out.println(chain.toStringReversed());
@@ -40,7 +41,8 @@ public class tester{
     chain.addNodeToEnd(test);
     System.out.println(chain.toString());
     System.out.println(chain.toStringReversed());
-    System.out.println(test.getdata());*/
+    System.out.println(test.getdata());
+    System.out.println("node tester thing");
 
     MyLinkedList empty = new MyLinkedList();
     MyLinkedList empty2 = new MyLinkedList();
@@ -50,13 +52,14 @@ public class tester{
     chain.extend(empty);
     System.out.println(chain.toString());
     System.out.println(chain.toStringReversed());
+    System.out.println("testing the thing that doesn't work");
     /*empty.extend(chain);
     System.out.println(empty.toString());
     System.out.println(empty.toStringReversed());*/
     MyLinkedList chain2 = new MyLinkedList();
-    chain.add("four");
-    chain.add("five");
-    chain.add("six");
+    chain2.add("four");
+    chain2.add("five");
+    chain2.add("six");
     chain.extend(chain2);
     System.out.println(chain.toString());
     System.out.println(chain.toStringReversed());

@@ -195,14 +195,22 @@ public class MyLinkedList{
         end = end.getprev();
         end.setnext(null);
 
-        size-=4;
+        size-=2;
       }
+    }
+    else if (size == 1){
+      other.addNodeToFront(start);
+      other.addNodeToEnd(end);
+      end = end.getprev();
+      end.setnext(null);
     }
     else if (other.size() != 0){
       other.addNodeToFront(end);
-      Node replaceEnd = end;
-      replaceEnd.getprev().setnext(replaceEnd);
-      replaceEnd.getnext().setprev(replaceEnd);
+      Node replaceEnd = new Node(end.getdata());
+      replaceEnd.setnext(end.getnext());
+      replaceEnd.setprev(end.getprev());
+      end.getprev().setnext(replaceEnd);
+      end.getnext().setprev(replaceEnd);
       other.addNodeToEnd(end);
       end = end.getprev();
       end.setnext(null);
@@ -214,26 +222,30 @@ public class MyLinkedList{
 
   public void addNodeToFront(Node block){
     if (size > 1) {
-      Node replace = start;
+      /*Node replace = start;
       block.setnext(replace);
       replace.setprev(block);
       replace.getnext().setprev(replace);
       start = block;
       start.getnext().setprev(start);
-      size+=1;
+      size+=1;*/
+      block.setnext(start);
+      start.setprev(block);
     }
     //This may mess something up, but toString and toStringReversed work so it seems fine
   }
 
   public void addNodeToEnd(Node block){
     if (size > 1) {
-      Node replace = end;
+      /*Node replace = end;
       block.setprev(replace);
       replace.setnext(block);
       replace.getprev().setnext(replace);
       end = block;
       end.getprev().setnext(end);
-      size+=1;
+      size+=1;*/
+      block.setprev(end);
+      end.setnext(block);
     }
     //This may mess something up, but toString and toStringReversed work so it seems fine
   }
